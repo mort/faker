@@ -28,6 +28,19 @@ module Faker
           ["synergies", "web-readiness", "paradigms", "markets", "partnerships", "infrastructures", "platforms", "initiatives", "channels", "eyeballs", "communities", "ROI", "solutions", "e-tailers", "e-services", "action-items", "portals", "niches", "technologies", "content", "vortals", "supply-chains", "convergence", "relationships", "architectures", "interfaces", "e-markets", "e-commerce", "systems", "bandwidth", "infomediaries", "models", "mindshare", "deliverables", "users", "schemas", "networks", "applications", "metrics", "e-business", "functionalities", "experiences", "web services", "methodologies"].rand
         ].join(' ')
       end
+
+      # Generate a (sometimes) official-sounding department name.
+      def department
+        ["Finance", "Marketing", "Operations", "Sales", "Products", "Engineering", "Technology", "Research", "People Operations", "General Council", "Business Operations", "Good Ideas", "Corporate Development", "Shady Accounting", "Spam Operations", "Pop-up Advertising", "Greenhouse Gas Emissions", "Lobbying", "Corporate Restructuring", "Human Resources", "Office Politics", "Extra-marital Affairs", "Information"].rand
+      end
+
+      # Generate a lofty job title.
+      def job_title
+        [
+          ["President,", "Vice President,", "Senior Vice President,", "Junior Vice President,", "Director of", "General Manager,", "Project Manager,", "Technical Lead,", "Architect,", "Engineer,", "Evangelist,", "Clerk,"].rand,
+          department
+        ].compact.join(' ')
+      end
     end
     
     Formats = [
