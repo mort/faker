@@ -32,6 +32,29 @@ module Faker
       def domain_suffix
         %w(co.uk com us uk ca biz info name).rand
       end
+      
+      def URL(protocol = nil)
+        protocol ||= ["http", "https", "ftp"].rand
+        
+        base = [ "#{protocol}://#{domain_name}"]
+        (rand(5)+1).times do 
+          base << domain_word  
+        end
+        
+        params = []
+        if Kernel.rand > 0.5
+          (rand(5)+1).times do
+            params << "#{domain_word}=#{domain_word}"
+          end
+        end
+
+        unless params.empty?
+          "#{base.join '/'}/?#{params.join '&'}"
+        else
+          base.join '/'
+        end
+
+      end
     end
   end
 end
